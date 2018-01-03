@@ -8,3 +8,4 @@ vault_wordpress_sites:
     admin_password: admin
     env:
       db_password: wordpress
+      ACF_PRO_KEY: b3JkZXJfaWQ9MTAzNTExfHR5cGU9ZGV2ZWxvcGVyfGRhdGU9MjAxNy0wNC0wNCAyMjozODozOA==
