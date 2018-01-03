@@ -1,3 +1,4 @@
+// Variables.
 @import "common/variables";
 
 // Automatically injected Bower dependencies via wiredep (never manually edit this block)
@@ -5,15 +6,23 @@
 @import "../../bower_components/bootstrap/scss/bootstrap.scss";
 // endbower
 
+// Globals.
 @import "common/global";
+
+//Components.
 @import "components/buttons";
 @import "components/comments";
 @import "components/forms";
 @import "components/grid";
 @import "components/wp-classes";
+
+//Layouts.
 @import "layouts/header";
 @import "layouts/sidebar";
 @import "layouts/footer";
 @import "layouts/pages";
 @import "layouts/posts";
 @import "layouts/tinymce";
+
+//Pages.
+@import "layouts/pages/home/home";
