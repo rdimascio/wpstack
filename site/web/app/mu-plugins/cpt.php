@@ -12,16 +12,42 @@
 // Our custom post type function
 function create_posttype() {
 
-    register_post_type( 'movies',
+    register_post_type( 'plugins',
         // CPT Options
         array(
             'labels' => array(
-                'name' => __( 'Movies' ),
-                'singular_name' => __( 'Movie' )
+                'name' => __( 'Plugins' ),
+                'singular_name' => __( 'Plugin' )
             ),
             'public' => true,
             'has_archive' => true,
-            'rewrite' => array('slug' => 'movies'),
+            'rewrite' => array('slug' => 'plugins'),
+        )
+    );
+
+    register_post_type( 'themes',
+        // CPT Options
+        array(
+            'labels' => array(
+                'name' => __( 'Themes' ),
+                'singular_name' => __( 'Theme' )
+            ),
+            'public' => true,
+            'has_archive' => true,
+            'rewrite' => array('slug' => 'themes'),
+        )
+    );
+
+    register_post_type( 'deals',
+        // CPT Options
+        array(
+            'labels' => array(
+                'name' => __( 'Deals' ),
+                'singular_name' => __( 'Deal' )
+            ),
+            'public' => true,
+            'has_archive' => true,
+            'rewrite' => array('slug' => 'deals'),
         )
     );
 }
