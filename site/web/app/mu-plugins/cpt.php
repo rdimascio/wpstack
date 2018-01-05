@@ -1,7 +1,7 @@
 <?php
 /**
  * Plugin Name: CPT
- * Plugin URI: https://ryan.dimasc.io
+ * Plugin URI: https://blog.dimasc.io/wp/cpt
  * Description: Custom post types for WP Stack - Plugins, Themes, Deals
  * Version: 1.0
  * Author: Ryan DiMascio
@@ -35,6 +35,19 @@ function create_posttype() {
             'public' => true,
             'has_archive' => true,
             'rewrite' => array('slug' => 'themes'),
+        )
+    );
+
+    register_post_type( 'bundles',
+        // CPT Options
+        array(
+            'labels' => array(
+                'name' => __( 'Bundles' ),
+                'singular_name' => __( 'Bundle' )
+            ),
+            'public' => true,
+            'has_archive' => true,
+            'rewrite' => array('slug' => 'bundles'),
         )
     );
 
