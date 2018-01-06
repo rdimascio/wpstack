@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8ec51870-323f-4c50-a3f8-02a62a3657f2" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/../../mu-plugins/cpt.php" afterPath="$PROJECT_DIR$/../../mu-plugins/cpt.php" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -31,8 +31,8 @@
       <file leaf-file-name="cpt.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/../../mu-plugins/cpt.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="508">
-              <caret line="481" column="1" lean-forward="true" selection-start-line="481" selection-start-column="1" selection-end-line="481" selection-end-column="1" />
+            <state relative-caret-position="513">
+              <caret line="483" column="57" lean-forward="true" selection-start-line="483" selection-start-column="57" selection-end-line="483" selection-end-column="57" />
               <folding>
                 <element signature="e#6#258#0#PHP" expanded="true" />
               </folding>
@@ -162,10 +162,9 @@
       <path value="$PROJECT_DIR$/vendor/composer" />
     </include_path>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="2" />
-    <option name="y" value="409" />
-    <option name="width" value="1440" />
+  <component name="ProjectFrameBounds">
+    <option name="y" value="23" />
+    <option name="width" value="960" />
     <option name="height" value="813" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -297,15 +296,15 @@
       <option name="presentableId" value="Default" />
       <updated>1514965807628</updated>
       <workItem from="1514965809925" duration="1310000" />
-      <workItem from="1515002548986" duration="24949000" />
+      <workItem from="1515002548986" duration="25190000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="26259000" />
+    <option name="totallyTimeSpent" value="26500000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="23" width="1440" height="813" extended-state="6" />
+    <frame x="0" y="23" width="960" height="813" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -476,8 +475,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/../../mu-plugins/cpt.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="508">
-          <caret line="481" column="1" lean-forward="true" selection-start-line="481" selection-start-column="1" selection-end-line="481" selection-end-column="1" />
+        <state relative-caret-position="513">
+          <caret line="483" column="57" lean-forward="true" selection-start-line="483" selection-start-column="57" selection-end-line="483" selection-end-column="57" />
           <folding>
             <element signature="e#6#258#0#PHP" expanded="true" />
           </folding>
