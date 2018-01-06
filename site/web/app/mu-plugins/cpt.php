@@ -36,6 +36,7 @@ function plugin_post_type() {
     register_post_type( 'plugin', array(
             'labels' => $labels,
             'has_archive' => true,
+            'has_rest' => true,
             'public' => true,
             'show_ui'             => true,
             'show_in_menu'        => true,
@@ -190,6 +191,7 @@ function theme_post_type() {
     register_post_type( 'theme', array(
             'labels' => $labels,
             'has_archive' => true,
+            'has_rest' => true,
             'public' => true,
             'show_ui'             => true,
             'show_in_menu'        => true,
@@ -344,6 +346,7 @@ function bundle_post_type() {
     register_post_type( 'bundle', array(
             'labels'              => $labels,
             'has_archive'         => true,
+            'has_rest'            => true,
             'public'              => true,
             'show_ui'             => true,
             'show_in_menu'        => true,
@@ -498,6 +501,7 @@ function deal_post_type() {
     register_post_type( 'deal', array(
             'labels' => $labels,
             'has_archive'         => true,
+            'has_rest'            => true,
             'public'              => true,
             'show_ui'             => true,
             'show_in_menu'        => true,
