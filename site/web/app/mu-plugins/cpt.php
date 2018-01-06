@@ -37,9 +37,16 @@ function plugin_post_type() {
             'labels' => $labels,
             'has_archive' => true,
             'public' => true,
+            'show_ui'             => true,
+            'show_in_menu'        => true,
+            'show_in_nav_menus'   => true,
+            'show_in_admin_bar'   => true,
+            'can_export'          => true,
+            'publicly_queryable'  => true,
+            'menu_icon'           => 'dashicons-plus-alt',
             'menu_position' => 5,
             'supports' => array( 'title', 'editor', 'excerpt', 'custom-fields', 'thumbnail','page-attributes' ),
-            'taxonomies' => array( 'post_tag', 'category' ),
+            'taxonomies' => array( 'plugin_tag', 'plugin_category' ),
             'exclude_from_search' => false,
             'capability_type' => 'post',
             'rewrite' => array( 'slug' => 'plugins' ),
@@ -76,6 +83,34 @@ function plugin_categories() {
 }
 
 add_action( 'init', 'plugin_categories', 0 );
+
+
+// Create Plugin Post Type Tags
+
+function plugin_tags() {
+
+    $labels = array(
+        'name'              => _x( 'Plugin Tags', 'taxonomy general name' ),
+        'singular_name'     => _x( 'Plugin Tag', 'taxonomy singular name' ),
+        'search_items'      => __( 'Search Plugin Tags' ),
+        'all_items'         => __( 'All Plugin Tags' ),
+        'parent_item'       => __( 'Parent Plugin Tag' ),
+        'parent_item_colon' => __( 'Parent Plugin Tag:' ),
+        'edit_item'         => __( 'Edit Plugin Tag' ),
+        'update_item'       => __( 'Update Plugin Tag' ),
+        'add_new_item'      => __( 'Add New Plugin Tag' ),
+        'new_item_name'     => __( 'New Plugin Tag' ),
+        'menu_name'         => __( 'Plugin Tags' ),
+    );
+    $args = array(
+        'labels' => $labels,
+        'hierarchical' => true,
+    );
+
+    register_taxonomy( 'plugin_tag', 'plugin', $args );
+}
+
+add_action( 'init', 'plugin_tags', 0 );
 
 
 // Edit Plugin Post Type Messages
@@ -156,9 +191,16 @@ function theme_post_type() {
             'labels' => $labels,
             'has_archive' => true,
             'public' => true,
+            'show_ui'             => true,
+            'show_in_menu'        => true,
+            'show_in_nav_menus'   => true,
+            'show_in_admin_bar'   => true,
+            'can_export'          => true,
+            'publicly_queryable'  => true,
+            'menu_icon'           => 'dashicons-star-filled',
             'menu_position' => 6,
             'supports' => array( 'title', 'editor', 'excerpt', 'custom-fields', 'thumbnail','page-attributes' ),
-            'taxonomies' => array( 'post_tag', 'category' ),
+            'taxonomies' => array( 'theme_tag', 'theme_category' ),
             'exclude_from_search' => false,
             'capability_type' => 'post',
             'rewrite' => array( 'slug' => 'themes' ),
@@ -195,6 +237,34 @@ function theme_categories() {
 }
 
 add_action( 'init', 'theme_categories', 0 );
+
+
+// Create Theme Post Type Tags
+
+function theme_tags() {
+
+    $labels = array(
+        'name'              => _x( 'Theme Tags', 'taxonomy general name' ),
+        'singular_name'     => _x( 'Theme Tag', 'taxonomy singular name' ),
+        'search_items'      => __( 'Search Theme Tags' ),
+        'all_items'         => __( 'All Theme Tags' ),
+        'parent_item'       => __( 'Parent Theme Tag' ),
+        'parent_item_colon' => __( 'Parent Theme Tag:' ),
+        'edit_item'         => __( 'Edit Theme Tag' ),
+        'update_item'       => __( 'Update Theme Tag' ),
+        'add_new_item'      => __( 'Add New Theme Tag' ),
+        'new_item_name'     => __( 'New Theme Tag' ),
+        'menu_name'         => __( 'Theme Tags' ),
+    );
+    $args = array(
+        'labels' => $labels,
+        'hierarchical' => true,
+    );
+
+    register_taxonomy( 'theme_tag', 'theme', $args );
+}
+
+add_action( 'init', 'theme_tags', 0 );
 
 
 // Edit Theme Post Type Messages
@@ -256,31 +326,38 @@ add_action( 'contextual_help', 'theme_help', 10, 3 );
 function bundle_post_type() {
 
     $labels = array(
-        'name' => 'Bundles',
-        'singular_name' => 'Bundle',
-        'add_new' => 'Add New Bundle',
-        'add_new_item' => 'Add New Bundle',
-        'edit_item' => 'Edit Bundle',
-        'new_item' => 'New Bundle',
-        'all_items' => 'All Bundles',
-        'view_item' => 'View Bundle',
-        'search_items' => 'Search Bundles',
-        'not_found' =>  'No Bundles Found',
+        'name'               => 'Bundles',
+        'singular_name'      => 'Bundle',
+        'add_new'            => 'Add New Bundle',
+        'add_new_item'       => 'Add New Bundle',
+        'edit_item'          => 'Edit Bundle',
+        'new_item'           => 'New Bundle',
+        'all_items'          => 'All Bundles',
+        'view_item'          => 'View Bundle',
+        'search_items'       => 'Search Bundles',
+        'not_found'          =>  'No Bundles Found',
         'not_found_in_trash' => 'No Bundles found in Trash',
-        'parent_item_colon' => '',
-        'menu_name' => 'Bundles',
+        'parent_item_colon'  => '',
+        'menu_name'          => 'Bundles',
     );
 
     register_post_type( 'bundle', array(
-            'labels' => $labels,
-            'has_archive' => true,
-            'public' => true,
-            'menu_position' => 7,
-            'supports' => array( 'title', 'editor', 'excerpt', 'custom-fields', 'thumbnail','page-attributes' ),
-            'taxonomies' => array( 'post_tag', 'category' ),
+            'labels'              => $labels,
+            'has_archive'         => true,
+            'public'              => true,
+            'show_ui'             => true,
+            'show_in_menu'        => true,
+            'show_in_nav_menus'   => true,
+            'show_in_admin_bar'   => true,
+            'can_export'          => true,
+            'publicly_queryable'  => true,
+            'menu_icon'           => 'dashicons-portfolio',
+            'menu_position'       => 7,
+            'supports'            => array( 'title', 'editor', 'excerpt', 'custom-fields', 'thumbnail','page-attributes' ),
+            'taxonomies'          => array( 'bundle_tag', 'bundle_category' ),
             'exclude_from_search' => false,
-            'capability_type' => 'post',
-            'rewrite' => array( 'slug' => 'bundles' ),
+            'capability_type'     => 'post',
+            'rewrite'             => array( 'slug' => 'bundles' ),
         )
     );
 }
@@ -314,6 +391,34 @@ function bundle_categories() {
 }
 
 add_action( 'init', 'bundle_categories', 0 );
+
+
+// Create Bundle Post Type Tags
+
+function bundle_tags() {
+
+    $labels = array(
+        'name'              => _x( 'Bundle Tags', 'taxonomy general name' ),
+        'singular_name'     => _x( 'Bundle Tag', 'taxonomy singular name' ),
+        'search_items'      => __( 'Search Bundle Tags' ),
+        'all_items'         => __( 'All Bundle Tags' ),
+        'parent_item'       => __( 'Parent Bundle Tag' ),
+        'parent_item_colon' => __( 'Parent Bundle Tag:' ),
+        'edit_item'         => __( 'Edit Bundle Tag' ),
+        'update_item'       => __( 'Update Bundle Tag' ),
+        'add_new_item'      => __( 'Add New Bundle Tag' ),
+        'new_item_name'     => __( 'New Bundle Tag' ),
+        'menu_name'         => __( 'Bundle Tags' ),
+    );
+    $args = array(
+        'labels' => $labels,
+        'hierarchical' => true,
+    );
+
+    register_taxonomy( 'bundle_tag', 'bundle', $args );
+}
+
+add_action( 'init', 'bundle_tags', 0 );
 
 
 // Edit Bundle Post Type Messages
@@ -375,31 +480,38 @@ add_action( 'contextual_help', 'bundle_help', 10, 3 );
 function deal_post_type() {
 
     $labels = array(
-        'name' => 'Deals',
-        'singular_name' => 'Deal',
-        'add_new' => 'Add New Deal',
-        'add_new_item' => 'Add New Deal',
-        'edit_item' => 'Edit Deal',
-        'new_item' => 'New Deal',
-        'all_items' => 'All Deals',
-        'view_item' => 'View Deal',
-        'search_items' => 'Search Deals',
-        'not_found' =>  'No Deals Found',
+        'name'               => 'Deals',
+        'singular_name'      => 'Deal',
+        'add_new'            => 'Add New Deal',
+        'add_new_item'       => 'Add New Deal',
+        'edit_item'          => 'Edit Deal',
+        'new_item'           => 'New Deal',
+        'all_items'          => 'All Deals',
+        'view_item'          => 'View Deal',
+        'search_items'       => 'Search Deals',
+        'not_found'          =>  'No Deals Found',
         'not_found_in_trash' => 'No Deals found in Trash',
-        'parent_item_colon' => '',
-        'menu_name' => 'Deals',
+        'parent_item_colon'  => '',
+        'menu_name'          => 'Deals',
     );
 
     register_post_type( 'deal', array(
             'labels' => $labels,
-            'has_archive' => true,
-            'public' => true,
-            'menu_position' => 8,
-            'supports' => array( 'title', 'editor', 'excerpt', 'custom-fields', 'thumbnail','page-attributes' ),
-            'taxonomies' => array( 'post_tag', 'category' ),
+            'has_archive'         => true,
+            'public'              => true,
+            'show_ui'             => true,
+            'show_in_menu'        => true,
+            'show_in_nav_menus'   => true,
+            'show_in_admin_bar'   => true,
+            'can_export'          => true,
+            'publicly_queryable'  => true,
+            'menu_icon'           => 'dashicons-megaphone',
+            'menu_position'       => 8,
+            'supports'            => array( 'title', 'editor', 'excerpt', 'custom-fields', 'thumbnail','page-attributes' ),
+            'taxonomies'          => array( 'deal_tag', 'deal_category' ),
             'exclude_from_search' => false,
-            'capability_type' => 'post',
-            'rewrite' => array( 'slug' => 'deals' ),
+            'capability_type'     => 'post',
+            'rewrite'             => array( 'slug' => 'deals' )
         )
     );
 }
@@ -422,7 +534,7 @@ function deal_categories() {
         'update_item'       => __( 'Update Deal Category' ),
         'add_new_item'      => __( 'Add New Deal Category' ),
         'new_item_name'     => __( 'New Deal Category' ),
-        'menu_name'         => __( 'Deal Categories' ),
+        'menu_name'         => __( 'Deal Categories' )
     );
     $args = array(
         'labels' => $labels,
@@ -433,6 +545,34 @@ function deal_categories() {
 }
 
 add_action( 'init', 'deal_categories', 0 );
+
+
+// Create Deal Post Type Tags
+
+function deal_tags() {
+
+    $labels = array(
+        'name'              => _x( 'Deal Tags', 'taxonomy general name' ),
+        'singular_name'     => _x( 'Deal Tag', 'taxonomy singular name' ),
+        'search_items'      => __( 'Search Deal Tags' ),
+        'all_items'         => __( 'All Deal Tags' ),
+        'parent_item'       => __( 'Parent Deal Tag' ),
+        'parent_item_colon' => __( 'Parent Deal Tag:' ),
+        'edit_item'         => __( 'Edit Deal Tag' ),
+        'update_item'       => __( 'Update Deal Tag' ),
+        'add_new_item'      => __( 'Add New Deal Tag' ),
+        'new_item_name'     => __( 'New Deal Tag' ),
+        'menu_name'         => __( 'Deal Tags' ),
+    );
+    $args = array(
+        'labels' => $labels,
+        'hierarchical' => true,
+    );
+
+    register_taxonomy( 'deal_tag', 'deal', $args );
+}
+
+add_action( 'init', 'deal_tags', 0 );
 
 
 // Edit Deal Post Type Messages
