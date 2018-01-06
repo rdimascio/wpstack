@@ -46,7 +46,8 @@ function plugin_post_type() {
             'publicly_queryable'  => true,
             'menu_icon'           => 'dashicons-plus-alt',
             'menu_position' => 5,
-            'supports' => array( 'title', 'editor', 'excerpt', 'custom-fields', 'thumbnail','page-attributes' ),
+            'description' => 'WordPress repository plugins for bundles',
+            'supports' => array( 'title', 'editor', 'revisions', 'excerpt', 'custom-fields', 'thumbnail', 'page-attributes' ),
             'taxonomies' => array( 'plugin_tag', 'plugin_category' ),
             'exclude_from_search' => false,
             'capability_type' => 'post',
@@ -56,6 +57,21 @@ function plugin_post_type() {
 }
 
 add_action( 'init', 'plugin_post_type' );
+
+
+// Edit Plugin Post Type Title Text
+
+function plugin_title_text( $title ) {
+    $screen = get_current_screen();
+
+    if  ( 'plugin' == $screen->post_type ) {
+        $title = 'Enter name of the plugin here';
+    }
+
+    return $title;
+}
+
+add_filter( 'enter_title_here', 'plugin_title_text' );
 
 
 // Create Plugin Post Type Categories
@@ -140,27 +156,43 @@ function plugin_messages( $messages ) {
 add_filter( 'post_updated_messages', 'plugin_messages' );
 
 
-// Edit Plugin Post Type Help Text
+// Edit Plugin Post Type Bulk Messages
 
-function plugin_help( $contextual_help, $screen_id, $screen ) {
+function plugin_bulk_messages( $bulk_messages, $bulk_counts ) {
 
-    if ( 'plugin' == $screen->id ) {
+    $bulk_messages['plugin'] = array(
+        'updated'   => _n( "%s plugin updated.", "%s plugins updated.", $bulk_counts["updated"] ),
+        'locked'    => _n( "%s plugin not updated, somebody is editing it.", "%s plugins not updated, somebody is editing them.", $bulk_counts["locked"] ),
+        'deleted'   => _n( "%s plugin permanently deleted.", "%s plugins permanently deleted.", $bulk_counts["deleted"] ),
+        'trashed'   => _n( "%s plugin moved to the Trash.", "%s plugins moved to the Trash.", $bulk_counts["trashed"] ),
+        'untrashed' => _n( "%s plugin restored from the Trash.", "%s plugins restored from the Trash.", $bulk_counts["untrashed"] ),
+    );
 
-        $contextual_help = '<h2>Plugins</h2>
-    <p>Plugins show the details of the items that we sell on the website. You can see a list of them on this page in reverse chronological order - the latest one we added is first.</p> 
-    <p>You can view/edit the details of each plugin by clicking on its name, or you can perform bulk actions using the dropdown menu and selecting multiple items.</p>';
-
-    } elseif ( 'edit-plugin' == $screen->id ) {
-
-        $contextual_help = '<h2>Editing plugins</h2>
-    <p>This page allows you to view/modify plugin details. Please make sure to fill out the available boxes with the appropriate details (product image, price, brand) and <strong>not</strong> add these details to the product description.</p>';
-
-    }
-
-    return $contextual_help;
+    return $bulk_messages;
 }
 
-add_action( 'contextual_help', 'plugin_help', 10, 3 );
+add_filter( 'bulk_post_updated_messages', 'plugin_bulk_messages', 10, 2 );
+
+
+// Edit Plugin Post Type Help Text
+
+function plugin_help() {
+
+    $screen = get_current_screen();
+
+    if ( 'plugin' != $screen->post_type )
+        return;
+
+    $args = [
+        'id'      => 'plugin_help',
+        'title'   => 'Plugin Help',
+        'content' => '<h3>Plugins</h3><p>Deals for entrepreneurs.</p>',
+    ];
+
+    $screen->add_help_tab( $args );
+}
+
+add_action('admin_head', 'plugin_help' );
 
 
 
@@ -201,7 +233,8 @@ function theme_post_type() {
             'publicly_queryable'  => true,
             'menu_icon'           => 'dashicons-star-filled',
             'menu_position' => 6,
-            'supports' => array( 'title', 'editor', 'excerpt', 'custom-fields', 'thumbnail','page-attributes' ),
+            'description' => 'WordPress repository themes',
+            'supports' => array( 'title', 'editor', 'revisions', 'excerpt', 'custom-fields', 'thumbnail','page-attributes' ),
             'taxonomies' => array( 'theme_tag', 'theme_category' ),
             'exclude_from_search' => false,
             'capability_type' => 'post',
@@ -274,18 +307,19 @@ add_action( 'init', 'theme_tags', 0 );
 function theme_messages( $messages ) {
 
     global $post, $post_ID;
+    $link = esc_url( get_permalink($post_ID) );
 
     $messages['theme'] = array(
         0 => '',
-        1 => sprintf( __('Theme updated. <a href="%s">View theme</a>'), esc_url( get_permalink($post_ID) ) ),
+        1 => sprintf( __('Theme updated. <a href="%s">View theme</a>'), $link ),
         2 => __('Custom field updated.'),
         3 => __('Custom field deleted.'),
         4 => __('Theme updated.'),
         5 => isset($_GET['revision']) ? sprintf( __('Theme restored to revision from %s'), wp_post_revision_title( (int) $_GET['revision'], false ) ) : false,
-        6 => sprintf( __('Theme published. <a href="%s">View theme</a>'), esc_url( get_permalink($post_ID) ) ),
+        6 => sprintf( __('Theme published. <a href="%s">View theme</a>'), $link ),
         7 => __('Theme saved.'),
         8 => sprintf( __('Theme submitted. <a target="_blank" href="%s">Preview theme</a>'), esc_url( add_query_arg( 'preview', 'true', get_permalink($post_ID) ) ) ),
-        9 => sprintf( __('Theme scheduled for: <strong>%1$s</strong>. <a target="_blank" href="%2$s">Preview theme</a>'), date_i18n( __( 'M j, Y @ G:i' ), strtotime( $post->post_date ) ), esc_url( get_permalink($post_ID) ) ),
+        9 => sprintf( __('Theme scheduled for: <strong>%1$s</strong>. <a target="_blank" href="%2$s">Preview theme</a>'), date_i18n( __( 'M j, Y @ G:i' ), strtotime( $post->post_date ) ), $link ),
         10 => sprintf( __('Theme draft updated. <a target="_blank" href="%s">Preview theme</a>'), esc_url( add_query_arg( 'preview', 'true', get_permalink($post_ID) ) ) ),
     );
 
@@ -297,25 +331,23 @@ add_filter( 'post_updated_messages', 'theme_messages' );
 
 // Edit Theme Post Type Help Text
 
-function theme_help( $contextual_help, $screen_id, $screen ) {
+function theme_help() {
 
-    if ( 'theme' == $screen->id ) {
+    $screen = get_current_screen();
 
-        $contextual_help = '<h2>Themes</h2>
-    <p>Themes show the details of the items that we sell on the website. You can see a list of them on this page in reverse chronological order - the latest one we added is first.</p> 
-    <p>You can view/edit the details of each theme by clicking on its name, or you can perform bulk actions using the dropdown menu and selecting multiple items.</p>';
+    if ( 'theme' != $screen->post_type )
+        return;
 
-    } elseif ( 'edit-themes' == $screen->id ) {
+    $args = [
+        'id'      => 'theme_help',
+        'title'   => 'Theme Help',
+        'content' => '<h3>Themes</h3><p>Deals for entrepreneurs.</p>',
+    ];
 
-        $contextual_help = '<h2>Editing themes</h2>
-    <p>This page allows you to view/modify theme details. Please make sure to fill out the available boxes with the appropriate details (product image, price, brand) and <strong>not</strong> add these details to the product description.</p>';
-
-    }
-
-    return $contextual_help;
+    $screen->add_help_tab( $args );
 }
 
-add_action( 'contextual_help', 'theme_help', 10, 3 );
+add_action('admin_head', 'theme_help' );
 
 
 
@@ -356,7 +388,8 @@ function bundle_post_type() {
             'publicly_queryable'  => true,
             'menu_icon'           => 'dashicons-portfolio',
             'menu_position'       => 7,
-            'supports'            => array( 'title', 'editor', 'excerpt', 'custom-fields', 'thumbnail','page-attributes' ),
+            'description'         => 'Bundles of WordPress plugins to improve new user experience',
+            'supports'            => array( 'title', 'editor', 'revisions', 'excerpt', 'custom-fields', 'thumbnail','page-attributes' ),
             'taxonomies'          => array( 'bundle_tag', 'bundle_category' ),
             'exclude_from_search' => false,
             'capability_type'     => 'post',
@@ -429,18 +462,19 @@ add_action( 'init', 'bundle_tags', 0 );
 function bundle_messages( $messages ) {
 
     global $post, $post_ID;
+    $link = esc_url( get_permalink($post_ID) );
 
     $messages['bundle'] = array(
         0 => '',
-        1 => sprintf( __('Bundle updated. <a href="%s">View bundle</a>'), esc_url( get_permalink($post_ID) ) ),
+        1 => sprintf( __('Bundle updated. <a href="%s">View bundle</a>'), $link ),
         2 => __('Custom field updated.'),
         3 => __('Custom field deleted.'),
         4 => __('Bundle updated.'),
         5 => isset($_GET['revision']) ? sprintf( __('Bundle restored to revision from %s'), wp_post_revision_title( (int) $_GET['revision'], false ) ) : false,
-        6 => sprintf( __('Bundle published. <a href="%s">View bundle</a>'), esc_url( get_permalink($post_ID) ) ),
+        6 => sprintf( __('Bundle published. <a href="%s">View bundle</a>'), $link ),
         7 => __('Bundle saved.'),
         8 => sprintf( __('Bundle submitted. <a target="_blank" href="%s">Preview bundle</a>'), esc_url( add_query_arg( 'preview', 'true', get_permalink($post_ID) ) ) ),
-        9 => sprintf( __('Bundle scheduled for: <strong>%1$s</strong>. <a target="_blank" href="%2$s">Preview bundle</a>'), date_i18n( __( 'M j, Y @ G:i' ), strtotime( $post->post_date ) ), esc_url( get_permalink($post_ID) ) ),
+        9 => sprintf( __('Bundle scheduled for: <strong>%1$s</strong>. <a target="_blank" href="%2$s">Preview bundle</a>'), date_i18n( __( 'M j, Y @ G:i' ), strtotime( $post->post_date ) ), $link ),
         10 => sprintf( __('Bundle draft updated. <a target="_blank" href="%s">Preview bundle</a>'), esc_url( add_query_arg( 'preview', 'true', get_permalink($post_ID) ) ) ),
     );
 
@@ -452,25 +486,22 @@ add_filter( 'post_updated_messages', 'bundle_messages' );
 
 // Edit Bundle Post Type Help Text
 
-function bundle_help( $contextual_help, $screen_id, $screen ) {
+function bundle_help() {
+    $screen = get_current_screen();
 
-    if ( 'bundle' == $screen->id ) {
+    if ( 'bundle' != $screen->post_type )
+        return;
 
-        $contextual_help = '<h2>Bundles</h2>
-    <p>Bundles show the details of the items that we sell on the website. You can see a list of them on this page in reverse chronological order - the latest one we added is first.</p> 
-    <p>You can view/edit the details of each bundle by clicking on its name, or you can perform bulk actions using the dropdown menu and selecting multiple items.</p>';
+    $args = [
+        'id'      => 'bundle_help',
+        'title'   => 'Bundle Help',
+        'content' => '<h3>Bundles</h3><p>Deals for entrepreneurs.</p>',
+    ];
 
-    } elseif ( 'edit-bundles' == $screen->id ) {
-
-        $contextual_help = '<h2>Editing bundles</h2>
-    <p>This page allows you to view/modify bundle details. Please make sure to fill out the available boxes with the appropriate details (product image, price, brand) and <strong>not</strong> add these details to the product description.</p>';
-
-    }
-
-    return $contextual_help;
+    $screen->add_help_tab( $args );
 }
 
-add_action( 'contextual_help', 'bundle_help', 10, 3 );
+add_action('admin_head', 'bundle_help');
 
 
 
@@ -607,22 +638,19 @@ add_filter( 'post_updated_messages', 'deal_messages' );
 
 // Edit Deal Post Type Help Text
 
-function deal_help( $contextual_help, $screen_id, $screen ) {
+function deal_help() {
+    $screen = get_current_screen();
 
-    if ( 'deal' == $screen->id ) {
+    if ( 'deal' != $screen->post_type )
+        return;
 
-        $contextual_help = '<h2>Deals</h2>
-    <p>Deals show the details of the items that we sell on the website. You can see a list of them on this page in reverse chronological order - the latest one we added is first.</p> 
-    <p>You can view/edit the details of each deal by clicking on its name, or you can perform bulk actions using the dropdown menu and selecting multiple items.</p>';
+    $args = [
+        'id'      => 'deal_help',
+        'title'   => 'Deal Help',
+        'content' => '<h3>Product Deals</h3><p>Deals for entrepreneurs.</p>',
+    ];
 
-    } elseif ( 'edit-deals' == $screen->id ) {
-
-        $contextual_help = '<h2>Editing deals</h2>
-    <p>This page allows you to view/modify deal details. Please make sure to fill out the available boxes with the appropriate details (product image, price, brand) and <strong>not</strong> add these details to the product description.</p>';
-
-    }
-
-    return $contextual_help;
+    $screen->add_help_tab( $args );
 }
 
-add_action( 'contextual_help', 'deal_help', 10, 3 );
+add_action('admin_head', 'deal_help');
