@@ -504,6 +504,18 @@ function bundle_help() {
 add_action('admin_head', 'bundle_help');
 
 
+// Add Bundles to Main Homepage Query
+
+function add_bundles_to_homepage( $query ) {
+    if ( is_home() && $query->is_main_query() ) {
+        $query->set( 'post_type', array( 'post', 'bundle' ) );
+    }
+    return $query;
+}
+
+add_action( 'pre_get_posts', 'add_bundles_to_homepage' );
+
+
 
 // ============= DEALS ============= //
 
