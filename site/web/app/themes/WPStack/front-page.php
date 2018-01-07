@@ -1,22 +1,20 @@
 <?php while (have_posts()) : the_post(); ?>
-    <div class="bundle-loop col-lg-12 col-md-12 col-sm-12 text-center">
-
         <?php
             $args = array( 'post_type' => 'bundle', 'posts_per_page' => 3 );
             $loop = new WP_Query( $args );
 
                 while ( $loop->have_posts() ) : $loop->the_post();
 
-                    echo '<a href="';
+                    echo '<article class="style1"><span class="image"><img src="';
+                        the_post_thumbnail_url();
+                    echo '" alt="" /></span><a href="';
                         the_permalink();
-                    echo '"><div class="bundle"><h2 class="bundle-title">';
+                    echo '"><h2>';
                         the_title();
-                    echo '</h2><p class="bundle-description">';
-                        the_content();
-                    echo '</p></div></a>';
+                    echo '</h2><div class="content"><p class="bundle-description">';
+                        the_excerpt();
+                    echo '</p></div></a></article>';
 
                 endwhile;
         ?>
-
-    </div></a>
 <?php endwhile; ?>

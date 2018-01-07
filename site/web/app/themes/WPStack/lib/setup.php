@@ -36,6 +36,10 @@ function setup() {
   // http://codex.wordpress.org/Function_Reference/add_image_size
   add_theme_support('post-thumbnails');
 
+  // Enable custom logo
+  // https://codex.wordpress.org/Theme_Logo
+  add_theme_support('custom-logo', ['height' => 100, 'width' => 400, 'flex-width' => true]);
+
   // Enable post formats
   // http://codex.wordpress.org/Post_Formats
   add_theme_support('post-formats', ['aside', 'gallery', 'link', 'image', 'quote', 'video', 'audio']);
