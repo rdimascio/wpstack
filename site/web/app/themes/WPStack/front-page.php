@@ -15,6 +15,5 @@
                         the_excerpt();
                     echo '</p></div></a></article>';
 
-                endwhile;
-        ?>
+                endwhile; ?>
 <?php endwhile; ?>

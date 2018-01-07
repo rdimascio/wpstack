@@ -1,8 +1,9 @@
 <header id="header">
   <div class="inner">
-      <a class="logo" href="/">
+      <?php the_custom_logo(); ?>
+      <a href="/" class="logo">
           <span class="title">
-              <?php bloginfo('name'); ?>
+                  <?php bloginfo('name'); ?>
           </span>
       </a>
       <nav>

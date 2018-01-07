@@ -31,11 +31,12 @@ use Roots\Sage\Wrapper;
                 endif; ?>
         </nav>
 
-        <div class="main">
+        <div id="main">
             <div class="inner">
                 <header>
-                    <h1>Header</h1>
-                    <p>sub header</p>
+                    <h1>Erat ut Sapien, mus curae, morbi dictum duis<br />
+                        aenean auctor at Dictum.</h1>
+                    <p>Etiam quis viverra lorem, in semper lorem. Sed nisl arcu euismod sit amet nisi euismod sed cursus arcu elementum ipsum arcu vivamus quis venenatis orci lorem ipsum et magna feugiat veroeros aliquam. Lorem ipsum dolor sit amet nullam dolore.</p>
                 </header>
                 <section class="tiles">
                     <?php include Wrapper\template_path(); ?>

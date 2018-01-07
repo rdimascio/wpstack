@@ -2856,7 +2856,7 @@ body.is-touch .tiles article .content {
   padding: 3em 0 3em 0;
 }
 
-#header .logo {
+#header .custom-logo-link {
   display: block;
   border-bottom: 0;
   color: inherit;
@@ -2868,19 +2868,19 @@ body.is-touch .tiles article .content {
   display: inline-block;
 }
 
-#header .logo > * {
+#header .custom-logo-link > * {
   display: inline-block;
   vertical-align: middle;
 }
 
-#header .logo .symbol {
+#header .custom-logo-link .custom-logo {
   margin-right: 0.65em;
+  width: 2em !important;
+  height: 2em !important;
 }
 
-#header .logo .symbol img {
-  display: block;
-  width: 2em;
-  height: 2em;
+#header .custom-logo-link img .custom-logo {
+  display: inline-block;
 }
 
 #header nav {
