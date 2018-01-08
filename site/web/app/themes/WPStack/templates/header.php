@@ -6,6 +6,7 @@
                   <?php bloginfo('name'); ?>
           </span>
       </a>
+            <button id="dark_light" type="button" name="dark_light" onclick="toggleDarkLight()" title="Toggle dark/light mode">🌛</button>
       <nav>
         <ul>
             <li><a href="#menu">Menu</a></li>

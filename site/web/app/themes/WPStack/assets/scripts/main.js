@@ -10,6 +10,11 @@
  * always reference jQuery with $, even when in .noConflict() mode.
  * ======================================================================== */
 
+function toggleDarkLight() {
+    var body = document.getElementById("body");
+    var currentClass = body.className;
+    body.className = currentClass === "dark-mode" ? "light-mode" : "dark-mode";
+}
 
 
 (function($) {
@@ -76,4 +81,4 @@
   // Load Events
   $(document).ready(UTIL.loadEvents);
 
-})(jQuery); // Fully reference jQuery after this point.
+})(jQuery); // Fully reference jQuery after this point// .
