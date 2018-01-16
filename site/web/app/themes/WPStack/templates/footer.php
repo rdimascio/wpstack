@@ -21,7 +21,7 @@
         <section>
             <h2>Follow</h2>
             <ul class="icons">
-                <li><a href="#" class="icon style2 fa-twitter"><span class="label">Twitter</span></a></li>
+                <li><a href="https://twitter.com/#" class="icon style2 fa-twitter"><span class="label">Twitter</span></a></li>
                 <li><a href="#" class="icon style2 fa-facebook"><span class="label">Facebook</span></a></li>
                 <li><a href="#" class="icon style2 fa-instagram"><span class="label">Instagram</span></a></li>
                 <li><a href="#" class="icon style2 fa-dribbble"><span class="label">Dribbble</span></a></li>

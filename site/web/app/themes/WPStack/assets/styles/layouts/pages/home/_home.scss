@@ -1623,7 +1623,7 @@ body {
 }
 
 body {
-  background: #ffffff;
+  background: rgb(238, 238, 238);
 }
 
 body.is-loading *, body.is-loading *:before, body.is-loading *:after {
@@ -2596,7 +2596,7 @@ button:disabled,
   -ms-flex-wrap: wrap;
   flex-wrap: wrap;
   postiion: relative;
-  margin: -2.5em 0 0 -2.5em;
+  margin: 3em 0 3em -2.5em;
 }
 
 .tiles article {
@@ -2647,30 +2647,6 @@ button:disabled,
   opacity: 0.8;
 }
 
-.tiles article > .image:after {
-  -moz-pointer-events: none;
-  -webkit-pointer-events: none;
-  -ms-pointer-events: none;
-  pointer-events: none;
-  -moz-transition: opacity 0.5s ease;
-  -webkit-transition: opacity 0.5s ease;
-  -ms-transition: opacity 0.5s ease;
-  transition: opacity 0.5s ease;
-  content: '';
-  display: block;
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100' preserveAspectRatio='none'%3E%3Cstyle%3Eline %7B stroke-width: 0.25px%3B stroke: %23ffffff%3B %7D%3C/style%3E%3Cline x1='0' y1='0' x2='100' y2='100' /%3E%3Cline x1='100' y1='0' x2='0' y2='100' /%3E%3C/svg%3E");
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: 100% 100%;
-  opacity: 0.25;
-  z-index: 2;
-}
-
 .tiles article > a {
   display: -moz-flex;
   display: -webkit-flex;
@@ -2718,7 +2694,7 @@ button:disabled,
   margin: 0;
 }
 
-.tiles article > a .content {
+.tiles article > a .tile-content {
   -moz-transition: max-height 0.5s ease, opacity 0.5s ease;
   -webkit-transition: max-height 0.5s ease, opacity 0.5s ease;
   -ms-transition: max-height 0.5s ease, opacity 0.5s ease;
@@ -2730,12 +2706,13 @@ button:disabled,
   opacity: 0;
 }
 
-.tiles article > a .content > :last-child {
+.tiles article > a .tile-content > :last-child {
   margin-bottom: 0;
 }
 
-.tiles article.style1 > .image:before {
-  background-color: #f2849e;
+.tiles article.tile > .image:before {
+  background-color: #333;
+  opacity: .7;
 }
 
 .tiles article.style2 > .image:before {
@@ -2767,14 +2744,14 @@ body:not(.is-touch) .tiles article:hover > .image {
 
 body:not(.is-touch) .tiles article:hover > .image:before {
   background-color: #333333;
-  opacity: 0.35;
+  opacity: 0.7;
 }
 
 body:not(.is-touch) .tiles article:hover > .image:after {
   opacity: 0;
 }
 
-body:not(.is-touch) .tiles article:hover .content {
+body:not(.is-touch) .tiles article:hover .tile-content {
   max-height: 15em;
   opacity: 1;
 }
@@ -2791,7 +2768,7 @@ body.is-loading .tiles article {
   opacity: 0;
 }
 
-body.is-touch .tiles article .content {
+body.is-touch .tiles article .tile-content {
   max-height: 15em;
   opacity: 1;
 }
@@ -3277,7 +3254,7 @@ body.is-menu-visible #menu .close {
 
 @media screen and (max-width: 980px) {
 
-  #footer > .inner section:nth-child(1) {
+  #footer > .inner section:nbth-child(1) {
     width: 66%;
     margin-right: 0;
   }
@@ -3364,26 +3341,80 @@ body.dark-mode {
   background-color: $dark-color;
   color: $light-color;
   a {
-    color: $dark-color;
+    color: $light-color;
   }
-  //button {
-  //  background-color: $light-color;
-  //  color: $dark-color;
-  //}
+  #footer {
+    background-color: #666;
+    color: #fff;
+  }
+  .moon {
+    display: none;
+  }
+  .sun {
+    display: block;
+  }
+  .github-corner.dark {
+    display: block;
+  }
+  .github-corner.light {
+    display: none;
+  }
+  .tiles article.tile > .image:before {
+    background-color: #fff;
+    opacity: .7;
+  }
+  .tile-title {
+    color: rgb(88, 88, 88) !important;
+  }
+  .tile-content {
+    color: rgb(88, 88, 88) !important;
+  }
 }
 
 body.light-mode {
   background-color: $light-color;
-  color: $dark-color;
+  color: rgb(88, 88, 88);
   a {
     color: $dark-color;
   }
-  //button {
-  //  background-color: $dark-color;
-  //  color: $light-color;
-  //}
+  #footer {
+    background-color: #f6f6f6;
+  }
+}
+
+.tile-title {
+  color: #fff;
+}
+
+.tile-content {
+  color: #fff;
 }
 
 #dark_light {
   box-shadow: none;
+}
+
+.sun {
+  display: none;
+}
+
+.github-corner.dark {
+  display: none;
+}
+
+.about {
+  text-align: center;
+  background-color: #fff;
+}
+
+.hero {
+  margin-bottom: 6em;
+}
+
+.btn_icon {
+  font-size: 1.3em;
+}
+
+.stack {
+  background: url(../images/stack-item-1.png);
 }
