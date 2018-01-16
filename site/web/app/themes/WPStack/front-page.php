@@ -6,10 +6,9 @@
     <section class="hero">
         <header>
             <h1>WordPress plugin stacks, hand-curated by <br />designers & developers.</h1>
-            <p>Our vetted team of WordPress experts have taken the guesswork out of finding the perfect plugins for your <br />WordPress powered blog, portfolio, store, or website.</p><br />
-            <button class="special"><span class="btn_icon">👇</span> Find a Stack</button> &nbsp; <button href="https://m.me/wpstack"><span class="btn_icon">🤖</span> Chat</button>
+            <p>Our vetted team of WordPress ninjas have taken the guesswork out of finding the perfect plugins for your <br />WordPress powered blog, portfolio, store, or website.</p><br />
+            <button class="special"><span class="btn_icon">👇</span> Find a Stack</button> &nbsp; <button href="https://m.me/wpstack"><span class="btn_icon">🙋‍♀️</span> Recommend a Stack</button>
         </header>
-        <div class="stack"></div>
     </section>
     <section id="bundles" class="tiles">
         <?php while (have_posts()) : the_post(); ?>

@@ -36,11 +36,23 @@ use Roots\Sage\Wrapper;
             <?php include Wrapper\template_path(); ?>
         </div><!-- /.main -->
 
+        <div class="popup">
+            <div class="overlay">
+                <div id="chat">
+                    <h4>Hey there! 👋</h4>
+                    <p>Do you know a plugin that belongs in one of these stacks? Let us know!</p>
+                    <a href="https://m.me/ryan.dimascio" class="fb-msg-btn" target="_blank"><img src="<?= get_template_directory_uri() . '/dist/images/fb-promoter_messenger.png'; ?>" width="20" class="fb_icon" /> Send to Messenger</a>
+                </div>
+                </div>
+            <div id="ryan">
+                <img src="<?= get_template_directory_uri() . '/dist/images/ryan.jpg'; ?>" width="50" class="ryan" />
+            </div>
+        </div>
+
         <?php do_action('get_footer');
               get_template_part('templates/footer');
               wp_footer(); ?>
     </div>
-
 </body>
 
 </html>
