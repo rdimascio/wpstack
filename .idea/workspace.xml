@@ -3,8 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="25cfc380-8653-4369-b4d8-4488e4122cb3" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/site/web/app/themes/WPStack/assets/styles/layouts/pages/home/_home.scss" afterPath="$PROJECT_DIR$/site/web/app/themes/WPStack/assets/styles/layouts/pages/home/_home.scss" />
-      <change beforePath="$PROJECT_DIR$/site/web/app/themes/WPStack/base-front-page.php" afterPath="$PROJECT_DIR$/site/web/app/themes/WPStack/base-front-page.php" />
-      <change beforePath="$PROJECT_DIR$/site/web/app/themes/WPStack/front-page.php" afterPath="$PROJECT_DIR$/site/web/app/themes/WPStack/front-page.php" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -18,11 +16,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="base-front-page.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="base-front-page.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/site/web/app/themes/WPStack/base-front-page.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="525">
-              <caret line="36" column="30" lean-forward="false" selection-start-line="36" selection-start-column="30" selection-end-line="36" selection-end-column="30" />
+            <state relative-caret-position="15">
+              <caret line="1" column="0" lean-forward="true" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
               <folding>
                 <marker date="1516468660642" expanded="true" signature="3422:3607" ph="..." />
               </folding>
@@ -50,11 +48,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="_home.scss" pinned="false" current-in-tab="false">
+      <file leaf-file-name="_home.scss" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/site/web/app/themes/WPStack/assets/styles/layouts/pages/home/_home.scss">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="526">
-              <caret line="3372" column="27" lean-forward="false" selection-start-line="3372" selection-start-column="27" selection-end-line="3372" selection-end-column="27" />
+            <state relative-caret-position="343">
+              <caret line="3470" column="1" lean-forward="true" selection-start-line="3470" selection-start-column="1" selection-end-line="3470" selection-end-column="1" />
               <folding />
             </state>
           </provider>
@@ -95,9 +93,9 @@
         <option value="$PROJECT_DIR$/site/web/app/themes/WPStack/single-bundle-photographer.php" />
         <option value="$PROJECT_DIR$/site/web/app/themes/WPStack/single-bundle-marketer.php" />
         <option value="$PROJECT_DIR$/site/web/app/themes/WPStack/single-bundle-designer.php" />
-        <option value="$PROJECT_DIR$/site/web/app/themes/WPStack/assets/styles/layouts/pages/home/_home.scss" />
         <option value="$PROJECT_DIR$/site/web/app/themes/WPStack/front-page.php" />
         <option value="$PROJECT_DIR$/site/web/app/themes/WPStack/base-front-page.php" />
+        <option value="$PROJECT_DIR$/site/web/app/themes/WPStack/assets/styles/layouts/pages/home/_home.scss" />
       </list>
     </option>
   </component>
@@ -176,12 +174,12 @@
       <option name="presentableId" value="Default" />
       <updated>1515038072612</updated>
       <workItem from="1516147128463" duration="4509000" />
-      <workItem from="1516169331630" duration="6918000" />
+      <workItem from="1516169331630" duration="7236000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="11427000" />
+    <option name="totallyTimeSpent" value="11745000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1440" height="813" extended-state="0" />
@@ -315,14 +313,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/site/web/app/themes/WPStack/assets/styles/layouts/pages/home/_home.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="526">
-          <caret line="3372" column="27" lean-forward="false" selection-start-line="3372" selection-start-column="27" selection-end-line="3372" selection-end-column="27" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/site/web/app/themes/WPStack/home.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="210">
@@ -341,11 +331,19 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/site/web/app/themes/WPStack/base-front-page.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="525">
-          <caret line="36" column="30" lean-forward="false" selection-start-line="36" selection-start-column="30" selection-end-line="36" selection-end-column="30" />
+        <state relative-caret-position="15">
+          <caret line="1" column="0" lean-forward="true" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
           <folding>
             <marker date="1516468660642" expanded="true" signature="3422:3607" ph="..." />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/site/web/app/themes/WPStack/assets/styles/layouts/pages/home/_home.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="343">
+          <caret line="3470" column="1" lean-forward="true" selection-start-line="3470" selection-start-column="1" selection-end-line="3470" selection-end-column="1" />
+          <folding />
         </state>
       </provider>
     </entry>
