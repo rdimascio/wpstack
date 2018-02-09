@@ -34,7 +34,7 @@ use Roots\Sage\Wrapper;
 
         <div id="main">
             <?php include Wrapper\template_path(); ?>
-        </div><!-- /.main -->f
+        </div><!-- /.main -->
 
         <?php do_action('get_footer');
               get_template_part('templates/footer');
